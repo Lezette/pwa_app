@@ -11,8 +11,9 @@ import Container from '@material-ui/core/Container';
 import { Link, useHistory } from 'react-router-dom';
 import GoogleSignin from './../GoogleSignin';
 import { auth } from './../firebase';
+import { fields } from './../constants';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -92,14 +93,6 @@ const Signup = () => {
     }));
   };
 
-  const fields = [
-    { name: 'store', label: 'Store Name' },
-    { name: 'storeowner', label: 'Store Owner Name' },
-    { name: 'phone', label: 'Phone number' },
-    { name: 'email', label: 'Email Address', type: 'email' },
-    { name: 'password', label: 'Password', type: 'password' },
-  ];
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -146,8 +139,8 @@ const Signup = () => {
         </form>
       </div>
       <Box mt={8}></Box>
-      <Typography component="h2" variant="h5">
-        OR
+      <Typography variant="overline" display="block" gutterBottom>
+        or
       </Typography>
       <GoogleSignin content="Signup with Google" />
     </Container>

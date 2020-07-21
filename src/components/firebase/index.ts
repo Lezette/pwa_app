@@ -3,18 +3,20 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCBBrETCaeHCz30WMB1WoOKaL_6Gx9Mm1Q',
-  authDomain: 'betastore-2f34c.firebaseapp.com',
-  databaseURL: 'https://betastore-2f34c.firebaseio.com',
-  projectId: 'betastore-2f34c',
-  storageBucket: 'betastore-2f34c.appspot.com',
-  messagingSenderId: '349262130015',
-  appId: '1:349262130015:web:8fd5d0dcfff1a071fde4ea',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 }
 
-firebase.initializeApp(firebaseConfig)
-const firestore = firebase.firestore()
+try{firebase.initializeApp(firebaseConfig)}
+catch(err){console.log('An error occured: ', err.stack);
+}
+// const firestore = firebase.firestore()
 const auth = firebase.auth
 const provider = new firebase.auth.GoogleAuthProvider()
 
-export { firestore, auth, provider }
+export { auth, provider }

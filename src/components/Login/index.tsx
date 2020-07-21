@@ -137,12 +137,13 @@ const Login = () => {
             </Grid>
           </Grid>
         </form>
-      </div>
+      
       <Box mt={8}></Box>
       <Typography component="h2" variant="h5">
         OR
       </Typography>
       <GoogleSignin content="Sign in with Google" />
+      </div>
     </Container>
   );
 };
